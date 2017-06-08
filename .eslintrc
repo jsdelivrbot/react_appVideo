@@ -1,0 +1,194 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true, // For JS Unit Tests (this is the runner)
+    "jquery": true,  // used in Chat-jquery for JS Unit Tests
+  },
+
+  "plugins": [
+    "eslint-plugin-react",
+  ],
+
+  "settings": {
+  },
+
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true,
+      },
+  },
+
+  "globals": {
+      "__DEV__": true
+  },
+
+  "rules": {
+    // Possible Errors
+    "no-await-in-loop": 2, // no await command inside a loop (makes async promises turn into sync).
+    "no-compare-neg-zero": 2, // disallows compare against "-0"
+    "no-cond-assign": 2, // disallow assignment in conditional expressions
+    "no-console": 1, // allows use of consoles.
+    "no-constant-condition": [2, { "checkLoops": true }],
+    "no-control-regex": 2,
+    "no-debugger": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-duplicate-case": 2,
+    "no-empty": 2,
+    "no-empty-character-class": 2,
+    "no-ex-assign": 2,
+    "no-extra-boolean-cast": 2,
+    "no-extra-parens": 0, // allows the use of extra, unneeded parens in the code.
+    "no-extra-semi": 2,
+    "no-func-assign": 2, // Can not re-assign a function to do something else
+    "no-inner-declarations": 2, //does not allow the creation of functions inside blocks (like 'if' statement)
+    "no-invalid-regexp": 2,
+    "no-irregular-whitespace": 2,
+    "no-obj-calls": 2,
+    "no-prototype-builtins": 1, // warns if using a prototype mehod without directly calling prototype.
+    "no-regex-spaces": 2,
+    "no-sparse-arrays": 2,
+    "no-template-curly-in-string": 2,
+    "no-unexpected-multiline": 2,
+    "no-unreachable": 2,
+    "no-unsafe-finally": 2,
+    "no-unsafe-negation": 2,
+    "use-isnan": 2,
+    "valid-jsdoc": 1,
+    "valid-typeof": 2,
+
+    // Best Practices - Rules to standardize the implementation of code.
+    "block-scoped-var": 2,
+    "complexity": ["error", 4], // This is the number of possible paths code may go through a function.  This is a best guess and will be lowered as code become broken down.
+    "consistent-return": 0, // require return statements to actually return something.
+    "curly": 2,
+    "default-case": 2,
+    "dot-location": [2, "property"],
+    "dot-notation": 2,
+    "eqeqeq": 2,
+    "guard-for-in": 2,
+    "no-alert": 2,
+    "no-div-regex": 2,
+    "no-empty-function": 2,
+    "no-empty-pattern": 2,
+    "no-eq-null": 2,
+    "no-eval": 2,
+    "no-extra-bind": 1,
+    "no-floating-decimal": 1,
+    "no-implied-eval": 2,
+    "no-invalid-this": 0, // Normally, this should belong to the function. But react often has binding of this to pass in context, so it's disabled.
+    "no-iterator": 2,
+    "no-labels": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 2,
+    "no-magic-numbers": 1,
+    "no-multi-str": 2,
+    "no-new": 2,
+    "no-octal": 2,
+    "no-octal-escape": 2,
+    "no-return-assign": 1,
+    "no-return-await": 2,
+    "no-script-url": 2,
+    "no-sequences": 2,
+    "no-throw-literal": 1,
+    "no-useless-concat": 1,
+    "no-warning-comments": 1,
+    "vars-on-top": 1,
+    "yoda": 1,
+
+    // Require Strict Mode
+    "strict": 1,
+
+    // Variables
+    "no-unused-vars": 2,
+    "no-undef": 2,
+    "no-use-before-define": 2,
+
+    // Stylistic Issues - Just formatting and code perferences, most will be flagged as warnings
+    "jsx-quotes": 1,
+
+    // ECMAScript 6 - Styling structure for the new ES6 stuff to standardize the implementation of these features
+    "arrow-body-style": [2, "always"],
+    "arrow-parens": 2,
+    "arrow-spacing": 2,
+    "constructor-super": 1,
+    "no-class-assign": 2,
+    "no-confusing-arrow": 2,
+    "no-const-assign": 1, // this one may become a 2 ('error'), instead of a warning.
+    "no-dupe-class-members": 2,
+    "no-duplicate-imports": 2,
+    "no-this-before-super": 2,
+    "no-useless-computed-key": 1,
+    "no-useless-constructor": 1,
+    "no-useless-rename": 2,
+    "no-var": 1,
+    "prefer-const": 1,
+    "prefer-rest-params": 1,
+    "prefer-spread": 2,
+    "prefer-template": 2,
+    "rest-spread-spacing": 1,
+    "template-curly-spacing": [1, "never"],
+
+    // React Plugin Rules - These are specific to the React framework.
+    "react/forbid-component-props": 2,
+    "react/no-array-index-key": 0, // The data-auto-ids use the index in loops to tag things uniquely in that custom attribute.
+    "react/no-children-prop": 1,
+    "react/no-danger": 1, // This is directly used on the Help page's content.
+    "react/no-danger-with-children": 2,
+    "react/no-deprecated": 1, // This will be enabled later as error.
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-direct-mutation-state": 2,
+    "react/no-find-dom-node": 2,
+    "react/no-is-mounted": 2,
+    "react/no-multi-comp": [1, { "ignoreStateless": true }],
+    "react/no-render-return-value": 2,
+    "react/no-set-state": 0, // Patron360 is all about setState everywhere... using a flux state is not an option.
+    "react/no-unescaped-entities": 2,
+    "react/no-unknown-property": 1,
+    "react/no-unused-prop-types": 2,
+    "react/no-will-update-set-state": 2,
+    "react/prefer-es6-class": 2,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0, // So many times in Patron doesn't use propTypes for validation... disables or else hundred+ per page.
+    "react/react-in-jsx-scope": 2,
+    "react/require-default-props": 2, // this might change to 0 or 1, depending on current scope of implementation.
+    "react/require-optimization": 0,
+    "react/require-render-return": 2,
+    "react/self-closing-comp": 2,
+    "react/sort-comp": 0, // would be nice to maintain the order of lifecycle methods, but this isn't required.
+    "react/sort-prop-types": 0,
+    "react/style-prop-object": 2,
+    "react/void-dom-elements-no-children": 2,
+
+    // JSX Rules - These are defined with React's plugin.
+    "react/jsx-boolean-value": 0, // either propName={true} or just the propName is fine.
+    "react/jsx-closing-bracket-location": [1, { "nonEmpty":"after-props", "selfClosing": "after-props" }],
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-equals-spacing": [2, "never"],
+    "react/jsx-first-prop-new-line": 0,
+    "react/jsx-handler-names": 0, // expects this to break with Redux events in props
+    "react/jsx-indent": [0, 'tab'],
+    "react/jsx-indent-props": [0, 'tab'],
+    "react/jsx-key": 2,
+    "react/jsx-max-props-per-line": [2, { "maximum": 3 }],
+    "react/jsx-no-bind": 0, // we do bind inside event props
+    "react/jsx-no-comment-textnodes": 1, // this may become un-monitored
+    "react/jsx-no-duplicate-props": 2,
+    "react/jsx-no-literals": 0, // most of the site uses unwrapped text in JSX
+    "react/jsx-no-target-blank": 2,
+    "react/jsx-no-undef": [2, { "allowGlobals": true }],
+    "react/jsx-pascal-case": [2, { allowAllCaps: true }],
+    "react/jsx-sort-props": 0, // we don't have enough props used to make sorting neccessary
+    "react/jsx-space-before-closing": 2,
+    "react/jsx-tag-spacing": [2, { "closingSlash": "never", "beforeSelfClosing": "always", "afterOpening": "never" }],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/jsx-wrap-multilines": 2,
+  }
+}
