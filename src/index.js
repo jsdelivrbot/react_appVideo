@@ -18,17 +18,23 @@ class App extends Component {
 			selectedVideo: null
 		};
 
+		this.videoSearch('reactjs');
+
+		
+		// this line gives you the ability to set the bind(this) here instead of doing it in the tag in line 75.
+		//Example of the tag line 76 with this line added:  onVideoSelect={this.onVideoSelect} 
+		this.onVideoSelect = this.onVideoSelect.bind(this);
+	}
+
+	videoSearch(term){
 		//this is a call back --- call the api and sets the info to state.
-		YTSearch({key: API_KEY, term: 'reactjs'}, (videosArray) => {	  		
+		YTSearch({key: API_KEY, term: term }, (videosArray) => {	  		
 			this.setState({
 				videosArray: videosArray,
 				selectedVideo: videosArray[0]
 
 			});  
 		});	
-		// this line gives you the ability to set the bind(this) here instead of doing it in the tag in line 75.
-		//Example of the tag line 76 with this line added:  onVideoSelect={this.onVideoSelect} 
-		this.onVideoSelect = this.onVideoSelect.bind(this);
 	}
 
 	//So due to this being a class... this would be the way you define a function.
@@ -52,7 +58,7 @@ class App extends Component {
 		<div> 
 			<SearchBar />
 			<VideoDetail frameVideo={this.state.selectedVideo} />
-			<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videosArray} />
+			<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videosArray}/>
 		</div>
 		);	
   	}
