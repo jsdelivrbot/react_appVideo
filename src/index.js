@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component} from 'react';     // used to create and manage our components
 import ReactDOM from 'react-dom';            // used to interact with the DOM 
 import YTSearch from 'youtube-api-search';
@@ -53,10 +54,12 @@ class App extends Component {
 		const onVideoSelect2 = (selectedVideo) => {
 			return 	this.setState({selectedVideo: selectedVideo });   	
 		};
+
+		const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 600);
 		
 		return (
 		<div> 
-			<SearchBar />
+			<SearchBar onSearchTermChange={videoSearch} />
 			<VideoDetail frameVideo={this.state.selectedVideo} />
 			<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videosArray}/>
 		</div>

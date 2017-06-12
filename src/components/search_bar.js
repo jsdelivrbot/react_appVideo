@@ -38,12 +38,26 @@ class SearchBar extends Component {
 			<div className="search-bar">
 				<input 
 				value={this.state.term}
-				onChange={(event) => { this.setState({ term: event.target.value})} } />				
+				onChange={(event) => this.onInputChange(event.target.value)} />				
 			</div>
 		);	
 	}
+
+	onInputChange(term){
+		this.setState({term});
+		this.props.onSearchTermChange(term);
+	}
 }
 
+
+/* start at line 41 
+1. in event of change
+2. send that term in say diaper cakes
+3. method onInputChange gets it through the parameter
+4. sets the term to the state in line 33.
+5. then shoots back the term to the onSearchTermChange method located at index.js line 59
+6. line 59 sends the term through updates state causing the VideoDetail to update.
+*/ 
 
 
 
